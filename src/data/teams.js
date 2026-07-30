@@ -216,8 +216,8 @@ export const RISING_LEAGUE = {
           ],
         },
         {
-          name: "404",
-          tagline: "Team ah kanom",
+          name: "404 - Team ah kanom",
+          tagline: "",
           captain: { name: "Santhosh Kumar M", email: "santhosh.mahendiran@zohocorp.com" },
           players: [
             { name: "Prabhu Raam S Y", email: "prabhu.raam@zohocorp.com" },
