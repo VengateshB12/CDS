@@ -45,6 +45,7 @@ export default function FixtureRow({ fixture, index = 0, direction = 'left' }) {
 
   if (stage === 'women') {
     const badge = GROUP_BADGE_MAP[group];
+    const note = fixture.note;
     return (
       <div
         ref={ref}
@@ -53,7 +54,10 @@ export default function FixtureRow({ fixture, index = 0, direction = 'left' }) {
       >
         <span className="fixture-match">#{match}</span>
         <span className="fixture-time">{time}</span>
-        <span className="fixture-women-text">{teamA}</span>
+        <span className="fixture-team fixture-team--a">{teamA}</span>
+        <span className="fixture-vs">VS</span>
+        <span className="fixture-team fixture-team--b">{teamB}</span>
+        {note && <span className="fixture-note">({note})</span>}
         {badge && (
           <span className={`badge ${badge.cls} fixture-badge`}>{badge.label}</span>
         )}

@@ -72,8 +72,8 @@ function findPlayerTeam(query) {
 
 function formatFixture(f) {
   if (f.stage === 'ceremony') return `Match ${f.match} | ${f.time} — ${f.teamA}`;
-  if (f.stage === 'women') return `Match ${f.match} | ${f.time} — ${f.teamA}`;
-  return `Match ${f.match} | ${f.time} — ${f.teamA} vs ${f.teamB} (${f.group})`;
+  const note = f.note ? ` (${f.note})` : '';
+  return `Match ${f.match} | ${f.time} — ${f.teamA} vs ${f.teamB} (${f.group})${note}`;
 }
 
 function getResponse(input) {
@@ -240,7 +240,7 @@ function getResponse(input) {
     return `**Tournament Format:**\n\n**Open League** — ${TOURNAMENT_FORMAT.open.teams} teams, ${TOURNAMENT_FORMAT.open.format}: Group Stage > Semis > Final\n**Rising League** — ${TOURNAMENT_FORMAT.rising.teams} teams, ${TOURNAMENT_FORMAT.rising.format}: Group Stage > Semis > Final\n**Women's League** — ${TOURNAMENT_FORMAT.womens.teams} teams, ${TOURNAMENT_FORMAT.womens.format}: Best of 3`;
   }
 
-  if (q.includes('captain')) {
+  if (q.includes('captain') && !q.includes('who')) {
     const captains = ALL_TEAMS
       .filter((t) => t.captain)
       .map((t) => `• ${t.captain.name} — ${t.name} (${t.group})`)
@@ -252,9 +252,11 @@ function getResponse(input) {
   if (playerResult) {
     const { team, player, role } = playerResult;
     const teamFixtures = getTeamFixturesByTeamObj(team);
-    let resp = `**${player.name}** is the ${role} of **${team.name}** (${team.group} — ${team.league} League).`;
+    const players = team.players.map((p) => p.name).join(', ');
+    let resp = `**${player.name}** is the ${role} of **${team.name}** (${team.group} — ${team.league} League).\n\nCaptain: ${team.captain?.name || 'TBD'}\nPlayers: ${players}`;
+    if (team.tagline) resp += `\nTagline: "${team.tagline}"`;
     if (teamFixtures.length > 0) {
-      resp += `\n\nTheir matches:\n${teamFixtures.map(formatFixture).join('\n')}`;
+      resp += `\n\n**Fixtures:**\n${teamFixtures.map(formatFixture).join('\n')}`;
     }
     return resp;
   }
@@ -271,13 +273,21 @@ function getResponse(input) {
     return resp;
   }
 
-  const timeMatch = q.match(/(\d{1,2}[:\s]?\d{0,2}\s*(?:am|pm))/i);
+  const timeMatch = q.match(/(\d{1,2})[:\s]*(\d{0,2})\s*(am|pm)/i);
   if (timeMatch) {
-    const matches = FIXTURES.filter((f) => f.time.toLowerCase().includes(timeMatch[1].replace(/\s+/g, ' ').toLowerCase()));
+    const hour = timeMatch[1];
+    const min = timeMatch[2] || '00';
+    const period = timeMatch[3].toUpperCase();
+    const normalizedTime = `${hour}:${min.padStart(2, '0')} ${period}`;
+    const matches = FIXTURES.filter((f) => f.time === normalizedTime);
     if (matches.length > 0) {
-      return `Matches at ${timeMatch[1]}:\n${matches.map(formatFixture).join('\n')}`;
+      return `Matches at ${normalizedTime}:\n${matches.map(formatFixture).join('\n')}`;
     }
-    return `No matches found at ${timeMatch[1]}.`;
+    const hourMatches = FIXTURES.filter((f) => f.time.startsWith(`${hour}:`) && f.time.endsWith(period));
+    if (hourMatches.length > 0) {
+      return `Matches around ${hour} ${period}:\n${hourMatches.map(formatFixture).join('\n')}`;
+    }
+    return `No matches found at ${normalizedTime}.`;
   }
 
   const groupMatch = q.match(/\b(oa|ob|ra|rb)\b/i);

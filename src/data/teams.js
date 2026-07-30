@@ -75,7 +75,7 @@ export const OPEN_LEAGUE = {
             { name: "Suresh Wilson", email: "sureshwilson.w@zohocorp.com" },
             { name: "Viswanath", email: "viswanath.mohan@zohocorp.com" },
             { name: "Srinath", email: "srinath.p@zohocorp.com" },
-            { name: "Vishnuprasath", email: "vishnuprasath.jk@zohocorp.com" },
+            { name: "Anbu", email: "vishnuprasath.jk@zohocorp.com" },
           ],
         },
         {
