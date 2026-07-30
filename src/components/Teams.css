@@ -1,0 +1,105 @@
+/* --- Toolbar (filter + count) --- */
+.teams-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.teams-filter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 0.25rem;
+}
+
+.teams-filter::-webkit-scrollbar {
+  display: none;
+}
+
+.teams-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  border-radius: 999px;
+  white-space: nowrap;
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.teams-filter-btn:hover {
+  border-color: var(--border-accent);
+  color: var(--text-primary);
+}
+
+.teams-filter-btn.active {
+  background: var(--accent-primary);
+  color: var(--text-on-accent);
+  border-color: var(--accent-primary);
+}
+
+/* --- Group color dots --- */
+.teams-filter-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.teams-filter-dot--OA { background: var(--group-oa); }
+.teams-filter-dot--OB { background: var(--group-ob); }
+.teams-filter-dot--RA { background: var(--group-ra); }
+.teams-filter-dot--RB { background: var(--group-rb); }
+.teams-filter-dot--W  { background: var(--group-w); }
+
+/* Hide dot when filter is active (white text makes dot hard to see) */
+.teams-filter-btn.active .teams-filter-dot {
+  background: var(--text-on-accent);
+  opacity: 0.7;
+}
+
+/* --- Team count --- */
+.teams-count {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* --- Grid --- */
+.teams-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .teams-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .teams-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .teams-filter {
+    justify-content: flex-start;
+  }
+}

@@ -1,0 +1,179 @@
+/* --- Group --- */
+.awards-group {
+  margin-bottom: 3.5rem;
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  position: relative;
+}
+
+.awards-group:last-child {
+  margin-bottom: 0;
+}
+
+/* --- Team Awards group: gold decorative border & bg --- */
+.awards-group--team {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.04) 0%, rgba(255, 215, 0, 0.01) 100%);
+  border: 1px solid rgba(255, 215, 0, 0.15);
+}
+
+/* --- Individual Awards group: accent decorative border & bg --- */
+.awards-group--individual {
+  background: linear-gradient(135deg, rgba(173, 255, 47, 0.03) 0%, rgba(173, 255, 47, 0.005) 100%);
+  border: 1px solid rgba(173, 255, 47, 0.1);
+}
+
+/* --- Group header --- */
+.awards-group-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.awards-group-header-icon {
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.awards-group--team .awards-group-header-icon {
+  color: #FFD700;
+}
+
+.awards-group--individual .awards-group-header-icon {
+  color: var(--accent-primary);
+}
+
+.awards-group-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* --- Grid --- */
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+/* --- Card base --- */
+.award-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+.award-card:hover {
+  transform: translateY(-4px);
+}
+
+/* --- Team variant --- */
+.award-card--team {
+  border-color: rgba(255, 215, 0, 0.15);
+  background: linear-gradient(160deg, rgba(255, 215, 0, 0.06) 0%, var(--bg-card) 40%);
+}
+
+.award-card--team:hover {
+  border-color: rgba(255, 215, 0, 0.35);
+  box-shadow: 0 0 24px rgba(255, 215, 0, 0.1);
+}
+
+/* --- Individual variant --- */
+.award-card--individual {
+  border-color: rgba(173, 255, 47, 0.12);
+}
+
+.award-card--individual:hover {
+  border-color: var(--border-accent);
+  box-shadow: 0 0 24px var(--accent-primary-glow);
+}
+
+/* --- Rank badge for individual awards --- */
+.award-card-rank {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.75rem;
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--accent-primary);
+  opacity: 0.4;
+  line-height: 1;
+}
+
+/* --- Icon --- */
+.award-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+  font-size: 1.15rem;
+}
+
+.award-card-icon--team {
+  background: rgba(255, 215, 0, 0.1);
+  color: #FFD700;
+}
+
+.award-card-icon--individual {
+  background: var(--accent-primary-glow);
+  color: var(--accent-primary);
+}
+
+/* --- Body --- */
+.award-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.award-card-name {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  line-height: 1.15;
+}
+
+.award-card-desc {
+  font-size: 0.825rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .awards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .awards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .awards-group {
+    padding: 1.25rem;
+  }
+}

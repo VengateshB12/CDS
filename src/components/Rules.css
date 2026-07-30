@@ -1,0 +1,132 @@
+/* --- General guidelines --- */
+.rules-guidelines {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* --- Toggle --- */
+.rules-toggle {
+  display: inline-flex;
+  background: var(--bg-input);
+  border-radius: 999px;
+  padding: 4px;
+  margin: 0 auto 2.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rules-toggle-tab {
+  position: relative;
+  padding: 0.6rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  border-radius: 999px;
+  transition: color 0.2s;
+  z-index: 1;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.rules-toggle-tab:hover {
+  color: var(--text-primary);
+}
+
+.rules-toggle-tab.active {
+  color: var(--text-on-accent);
+}
+
+.rules-toggle-indicator {
+  position: absolute;
+  inset: 0;
+  background: var(--accent-primary);
+  border-radius: 999px;
+  z-index: -1;
+}
+
+.rules-toggle-label {
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Content --- */
+.rules-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* --- Category --- */
+.rules-category {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.rules-category-heading {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--accent-primary);
+  line-height: 1.1;
+}
+
+/* --- List --- */
+.rules-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.rules-item {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  padding-left: 1rem;
+  border-left: 2px solid var(--accent-primary);
+  padding-top: 0.15rem;
+  padding-bottom: 0.15rem;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.rules-item:hover {
+  border-left-color: var(--accent-secondary);
+  color: var(--text-primary);
+}
+
+@keyframes ruleSlideIn {
+  from { opacity: 0; transform: translateX(-12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.rules-content--animated {
+  animation: fadeIn 0.25s ease-out;
+}
+
+.rules-item--animated {
+  animation: ruleSlideIn 0.3s ease-out both;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .rules-toggle {
+    width: 100%;
+  }
+
+  .rules-toggle-tab {
+    flex: 1;
+    text-align: center;
+    padding: 0.55rem 0.75rem;
+    font-size: 0.8rem;
+  }
+}

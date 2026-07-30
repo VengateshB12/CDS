@@ -1,0 +1,167 @@
+.format-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* --- Card --- */
+.format-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  border-top: 3px solid var(--card-accent);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.format-card:hover {
+  box-shadow: 0 0 24px rgba(173, 255, 47, 0.06);
+  transform: translateY(-2px);
+}
+
+/* --- Header --- */
+.format-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.format-card-emoji {
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.format-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
+/* --- Stats row --- */
+.format-card-stats {
+  display: flex;
+  gap: 1rem;
+  padding: 0.875rem 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.format-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  gap: 0.2rem;
+}
+
+.format-stat-value {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--card-accent);
+  line-height: 1;
+}
+
+.format-stat-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+/* --- Phases / timeline --- */
+.format-card-phases {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.format-phases-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.format-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.format-phase {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.format-phase-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 16px;
+  padding-top: 2px;
+}
+
+.format-phase-dot {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid;
+  flex-shrink: 0;
+}
+
+.format-phase-line {
+  display: block;
+  width: 2px;
+  flex: 1;
+  min-height: 24px;
+  opacity: 0.3;
+  border-radius: 1px;
+}
+
+.format-phase-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding-bottom: 1rem;
+}
+
+.format-phase:last-child .format-phase-content {
+  padding-bottom: 0;
+}
+
+.format-phase-name {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.format-phase-desc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .format-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
