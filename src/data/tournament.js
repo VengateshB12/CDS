@@ -42,7 +42,7 @@ export const TOURNAMENT_FORMAT = {
     label: "Women's League",
     emoji: "👑",
     teams: 2,
-    format: "4-over",
+    format: "5-over",
     phases: [
       { name: "Best of 3", description: "First team to win 2 matches becomes Champion" },
     ],

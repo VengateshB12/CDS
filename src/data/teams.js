@@ -16,7 +16,7 @@ export const OPEN_LEAGUE = {
             { name: "Arun", email: "arunkumar.sc@zohocorp.com" },
             { name: "Ram", email: "ramkumar.n@zohocorp.com" },
             { name: "Yuvraj", email: "yuvaraj.mk@zohocorp.com" },
-            { name: "Sarath", email: "sarathkumar.pm@zohocorp.com" },
+            { name: "Jaiganesh", email: "jaiganesh.ts@zohocorp.com" },
             { name: "Mandy", email: "mandiramoorthy.d@zohocorp.com" },
           ],
         },
@@ -199,7 +199,7 @@ export const RISING_LEAGUE = {
             { name: "Sriram Pandian", email: "srirampandian.s@zohocorp.com" },
             { name: "Siva", email: "sivaprassath.pc@zohocorp.com" },
             { name: "Sundar", email: "sundaresan.s@zohocorp.com" },
-            { name: "Jaiganesh", email: "jaiganesh.ts@zohocorp.com" },
+            { name: "Sarath", email: "sarathkumar.pm@zohocorp.com" },
           ],
         },
         {
@@ -236,7 +236,7 @@ export const RISING_LEAGUE = {
 export const WOMENS_LEAGUE = {
   label: "Women's League",
   shortLabel: "Women's",
-  format: "4-over format, Best of 3",
+  format: "5-over format, Best of 3",
   teams: [
     {
       name: "எங்கள பகச்சா, GH-ல சிகிச்சை!",

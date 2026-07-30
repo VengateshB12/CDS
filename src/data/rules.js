@@ -79,7 +79,7 @@ export const WOMENS_RULES = [
   {
     heading: "Match Format",
     items: [
-      "Matches will be 4 overs per side.",
+      "Matches will be 5 overs per side.",
       "Only one bowler may bowl 2 overs; all others are limited to 1 over.",
       "Best of 3 matches — first team to win 2 becomes Champion.",
     ],
