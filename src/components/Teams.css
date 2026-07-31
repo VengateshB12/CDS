@@ -101,5 +101,11 @@
 
   .teams-filter {
     justify-content: flex-start;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .teams-filter-btn {
+    flex-shrink: 0;
   }
 }
