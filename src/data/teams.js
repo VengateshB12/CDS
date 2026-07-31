@@ -8,7 +8,7 @@ export const OPEN_LEAGUE = {
       color: "#ADFF2F",
       teams: [
         {
-          name: "Irukra prechanaila ivanunga vera",
+          name: "Gear 7",
           tagline: null,
           captain: { name: "Ameer Khan", email: "ameer.khan@zohocorp.com" },
           players: [
